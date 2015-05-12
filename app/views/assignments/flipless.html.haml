@@ -21,6 +21,7 @@
   - @due_dates.each do |due_date|
     .dates
       = Date.parse(due_date)
+      - @today_assignments_array.nil? ? '' : @today_assignments_array.clear
       - @today_assignments_hash = @grouped_assignments.select{|d,a| d == Date.parse(due_date) }
       - @today_assignments_hash.each_value{|today_assignments| @today_assignments_array = today_assignments}
       - if !@today_assignments_array.nil?
