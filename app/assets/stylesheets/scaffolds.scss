@@ -1,27 +1,50 @@
-html  {
-  background-color: #FFD2CD;
-}
+@import 'colors';
+
+html.task     { background-color: $color-0-7; }
+html.default  { background-color: $color-1-7; }
+html.cascade  { background-color: $color-2-7; }
+
+.task    body { background-color: $color-0-5; border-color: $color-0-B;}
+.default body { background-color: $color-1-5; border-color: $color-1-B;}
+.cascade body { background-color: $color-2-5; border-color: $color-2-B;}
+
+.task    div         { background-color: $color-0-3; }
+.task    div div     { background-color: $color-0-5; }
+.task    div div div { background-color: $color-0-3; }
+.default div         { background-color: $color-1-3; }
+.default div div     { background-color: $color-1-5; }
+.default div div div { background-color: $color-1-3; }
+.cascade div         { background-color: $color-2-3; }
+.cascade div div     { background-color: $color-2-5; }
+.cascade div div div { background-color: $color-2-3; }
+
+.task    .semesters a     { background-color: $color-0-5; }
+.task    .semesters div a { background-color: $color-0-3; }
+.default .semesters a     { background-color: $color-1-5; }
+.default .semesters div a { background-color: $color-1-3; }
+.cascade .semesters a     { background-color: $color-2-5; }
+.cascade .semesters div a { background-color: $color-2-3; }
+
+.task    div { border-color: $color-0-A;}
+.default div { border-color: $color-1-A;}
+.cascade div { border-color: $color-2-A;}
 
 body {
-  background-color: #F3C3DB;
 /*  font-size: 0.8125em; */
   font-size: 1.0125em;
   line-height: 1.1250em;
   font-weight: 600;
-  margin-left: 3em;
-  margin-right: 3em;
-  margin-top: 3em;
-  margin-bottom: 3em;
-  padding: 1em;
-  border: 1px solid #000000;
-  border-radius: 1em;
+  border-style:  double; 
+  border-width:  0.1875em;
+  border-radius: 1.1875em;
+  margin:  3em;
+  padding: 1em 1em 1em 0.500em;
 }
 
 h1, h2, h3, h4, h5, h6, p, ol, ul, li, td, th {
   font-family: 'Source Sans Pro', verdana, arial, helvetica, sans-serif;
-/*  font-size: 0.8125em; */
-  font-size: 1.0125em;
-  line-height: 1.1250em;
+  font-size:   1.0125em;
+  line-height: 1.1250;
 }
 
 p.tasklist {
@@ -31,47 +54,118 @@ p.tasklist {
 
 span.smurf {
   color: #61210B;
+  display: inline-block;
 }
 
 span.frums {
   color: #4B088A;
+  display: inline-block;
 }
 
 .semesters {
-  border: 1px solid #C096AB;
-  border-radius: 1em;
-  margin: 0.375em 0.0625em 0.375em -0.375em; 
-  padding: 0.375em;  
+  border-color: #000000;
+  border-style: solid;
+  border-width: 0.0625em;
+  border-radius: 0.875em;
+  border-top-left-radius: 0.5em;
+  margin:  0.375em 0.375em 0.375em 0.125em;
+  padding: 0.250em 0.125em 0.125em 0.375em;
 }
 
 .courses {
-  border: 1px solid #C096AB;
-  border-radius: 1em;
-  padding: 0.125em 0.125em 0.125em 0.375em;
+  border-color:  inherit;
+  border-style:  solid;
+  border-width:  0.0625em;
+  border-radius: 0.875em;
+  border-top-left-radius: 0.5em;
+  padding: 0.125em 0.125em 0.125em 0.31250em;
 }
 
 .sources {
-  border: 1px solid #E7B8CF;
-  border-radius: 1em;
-  padding: 0.125em;
+  border-color:  inherit;
+  border-style:  solid;
+  border-width:  0.0625em;
+  border-radius: 0.750em;
+  padding: 0.3125em 0.250em 0.250em 0.250em;
 }
 
-
-.flipless{
-  border: 2px solid #C096AB;
-  border-radius: 1em;
-  padding: 0.375em;
-}
-
-.dates {
-  border: 1px solid #E7B8CF;
-  border-radius: 0.625em;
+.flipless {
+  border-color: #000000;
+  border-style: solid;
+  border-width:  0.125em 0.125em 0.0625em 0.125em;
+  border-radius: 0.875em 0.875em 0.500em  0.500em;
   padding: 0.250em;
 }
 
-.sources span.smurf {
-  margin: 0 0 0 0.875em; 
+.flipless + .flipless {
+  border-width:  0.0625em 0.125em 0.125em 0.125em;
+  border-radius: 0.500em  0.500em 0.875em 0.875em;
 }
+
+.dates {
+  border-color: inherit;
+  border-style: solid;
+  border-width: 0.0625em;
+  border-radius: 0.625em;
+  margin:  0;
+  padding: 0.250em;
+}
+
+
+.dates + .dates {
+  margin: 0.1825em 0 0 0;
+}
+
+
+
+/*.task .dates { 
+  border-width: 0.0625em 0.0625em 0.0625em 0.0625em;
+}
+
+.task .dates + .dates { 
+  border-width: 0 0.0625em 0.0625em 0.0625em;
+}
+
+.default .dates { 
+  border-width: 0.1875em 0.0625em;
+}*/
+
+
+
+
+.sources span.smurf {
+  margin: 0 0 0 0.375em;
+}
+
+.sources span.frums {
+  min-width: 9em;
+}
+
+.semesters a {
+  text-decoration: none;
+  float: right;
+  line-height: 1.375;
+  font-size: 0.875em;
+  border-color:  inherit;
+  border-style:  solid;
+  border-width:  0.0625em;
+  border-radius: 0.250em;
+  margin:  0.1875em 0.625em 0 0.375em;
+  padding: 0 0.4325em 0 0.4325em;
+}
+
+.semesters .courses a {
+  margin:  0.1875em 0.4375em 0 0.375em;
+}
+
+div + .smurf {
+  margin-top: 0.5em;
+}
+
+.smurf:first-child {
+  margin-top: 0.5em;
+}
+
 
 
 pre {
@@ -81,6 +175,7 @@ pre {
 }
 
 a {
+  text-decoration: underline;
   margin: 0 0.5em;
   color: #000;
   &:visited {

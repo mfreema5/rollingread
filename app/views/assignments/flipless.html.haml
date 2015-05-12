@@ -1,15 +1,14 @@
 .flipless
-  .courses
-    %span.smurf  Course Number
-    %span.frums= @course.course_number
-    %span.smurf  Abbrev.
-    %span.frums= @course.short_course
-    %span.smurf  Course title
-    %span.frums= @course.full_course
-    - if !@course.meet_days.blank?
-      - @course.meet_days.each do |mday|
-        %span.smurf  Meets: 
-        %span.frums= Date::DAYNAMES[mday.to_i]
+  %span.smurf  Course Number
+  %span.frums= @course.course_number
+  %span.smurf  Abbrev.
+  %span.frums= @course.short_course
+  %span.smurf  Course title
+  %span.frums= @course.full_course
+  - if !@course.meet_days.blank?
+    - @course.meet_days.each do |mday|
+      %span.smurf  Meets: 
+      %span.frums= Date::DAYNAMES[mday.to_i]
   .sources
     Sources
     - @sources.each do |source|

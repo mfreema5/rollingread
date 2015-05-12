@@ -1,22 +1,20 @@
 %h1 RollingRead &ndash; Cascading contents
 
 .semesters
-  %h2 Semesters
   - if @ordered_semesters.empty?
     %h3 You don't have any semesters!
   - else
     - @ordered_semesters.each do |semester|
-      %span.smurf Abbrev.
+      %span.smurf Semester:
       %span.frums= semester.short_semester
-      %span.smurf Full semester
+      %span.smurf Descript.:
       %span.frums= semester.full_semester
-      %span.smurf Start date
+      %span.smurf Start:
       %span.frums= semester.start_date
-      %span.smurf End date
+      %span.smurf End:
       %span.frums= semester.end_date
       = link_to('Add course', course_in_semester_path(semester.id), :rel=>"external")
       .courses
-        %h2 Courses
         - if @grouped_courses.empty?
           %h3 You don't have any courses!
         - else
@@ -27,22 +25,21 @@
             %span.frums= course.course_number
             %span.smurf Abbrev.
             %span.frums= course.short_course
-            %span.smurf Course title
+            %span.smurf Title
             %span.frums= course.full_course
             = link_to 'Add source', source_in_course_path(course.id)
             - if !@grouped_sources.empty?
               = link_to('Add assignments', assignment_for_course_path(course.id, flip: true), :rel=>"external")
             .sources
-              %h2 Sources
               - if @grouped_sources.empty?
                 %h3 You don't have any sources!
               - else
                 - @these_sources_hash = @grouped_sources.select{|s,c| s == course.id }
                 - @these_sources_hash.each_value{|these_sources| @these_sources_array = these_sources}
                 - @these_sources_array.each do |source|
-                  %span.smurf  Abbrev.
+                  %span.smurf  Source:
                   %span.frums= source.short_source
-                  %span.smurf  Source details
+                  %span.smurf  Details
                   %span.frums= source.source_details
                   %p
 

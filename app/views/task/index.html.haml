@@ -3,7 +3,7 @@
 - if user_signed_in?
   .semesters
     - @grouped_assignments.each do |g_date, grouped|
-      .courses
+      .dates
         = g_date
         - grouped.each do |g_assignment|
           .assignments
