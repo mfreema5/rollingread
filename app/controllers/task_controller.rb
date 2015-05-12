@@ -14,7 +14,7 @@ class TaskController < ApplicationController
 
   def cascade
     @semesters = Semester.where(user_id: session[:user_id])
-    @ordered_semesters = @semesters.order('start_date').reverse_order
+    @ordered_semesters = @semesters.order('start_date')
     @courses = Course.where(semester: @semesters)
     @grouped_courses = @courses.group_by { |course| course.semester_id }
     @sources = Source.where(course: @courses)
