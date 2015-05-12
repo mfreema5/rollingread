@@ -14,7 +14,7 @@
       %span.frums= semester.start_date
       %span.smurf End date
       %span.frums= semester.end_date
-      = link_to 'Add course', course_in_semester_path(semester.id)
+      = link_to('Add course', course_in_semester_path(semester.id), :rel=>"external")
       .courses
         %h2 Courses
         - if @grouped_courses.empty?
@@ -31,7 +31,7 @@
             %span.frums= course.full_course
             = link_to 'Add source', source_in_course_path(course.id)
             - if !@grouped_sources.empty?
-              = link_to 'Add assignments', assignment_for_course_path(course.id, flip: true)
+              = link_to('Add assignments', assignment_for_course_path(course.id, flip: true), :rel=>"external")
             .sources
               %h2 Sources
               - if @grouped_sources.empty?
@@ -48,4 +48,4 @@
 
 = link_to 'Add new semester', semester_in_user_path(session[:user_id])
 
-= link_to 'Go home', '/'
+= link_to('Go home', '/', :rel=>"external")

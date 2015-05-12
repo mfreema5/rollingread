@@ -14,7 +14,7 @@
               = label_tag('Completed') 
               = check_box_tag('completed', value = "true", checked = g_assignment.completed, disabled: true )
   %nav
-    = link_to('Add semesters, courses, etc.', cascade_path )
+    = link_to('Add semesters, courses, etc.', cascade_path, :rel=>"external" )
 
 - else
   %section
