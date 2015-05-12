@@ -15,10 +15,11 @@
       %span.frums= semester.end_date
       = link_to('Add course', course_in_semester_path(semester.id), :rel=>"external")
       .courses
-        - if @grouped_courses.empty?
-          %h3 You don't have any courses!
+        - @these_courses_array.nil? ? '' : @these_courses_array.clear
+        - @these_courses_hash = @grouped_courses.select{|s,c| s == semester.id }
+        - if @these_courses_hash.empty?
+          %h3 You don't have any courses in this semester!
         - else
-          - @these_courses_hash = @grouped_courses.select{|s,c| s == semester.id }
           - @these_courses_hash.each_value{|these_courses| @these_courses_array = these_courses}
           - @these_courses_array.each do |course|
             %span.smurf Course Number
@@ -31,10 +32,11 @@
             - if !@grouped_sources.empty?
               = link_to('Add assignments', assignment_for_course_path(course.id, flip: true), :rel=>"external")
             .sources
-              - if @grouped_sources.empty?
-                %h3 You don't have any sources!
+              - @these_sources_array.nil? ? '' : @these_sources_array.clear
+              - @these_sources_hash = @grouped_sources.select{|s,c| s == course.id }
+              - if @these_sources_hash.empty?
+                %h3 You don't have any sources for this course!
               - else
-                - @these_sources_hash = @grouped_sources.select{|s,c| s == course.id }
                 - @these_sources_hash.each_value{|these_sources| @these_sources_array = these_sources}
                 - @these_sources_array.each do |source|
                   %span.smurf  Source:
