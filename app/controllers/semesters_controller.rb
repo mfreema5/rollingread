@@ -27,6 +27,7 @@ class SemestersController < ApplicationController
   # POST /semesters.json
   def create
     @semester = Semester.new(semester_params)
+    @semester.user_id = session[:user_id]
 
     respond_to do |format|
       if @semester.save
