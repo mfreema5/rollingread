@@ -1,4 +1,6 @@
 class TaskController < ApplicationController
+  layout "cascade", except: [:index]
+
   def index
     if current_user.nil?
       redirect_to '/auth/twitter'
