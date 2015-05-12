@@ -71,6 +71,6 @@ class SemestersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def semester_params
-      params.require(:semester).permit(:short_semester, :full_semester, :start_date, :end_date)
+      params.require(:semester).permit(:short_semester, :full_semester, :start_date, :end_date, :user_id)
     end
 end
