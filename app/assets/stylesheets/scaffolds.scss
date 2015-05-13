@@ -78,6 +78,11 @@ span.frums {
   border-radius: 0.875em;
   border-top-left-radius: 0.5em;
   padding: 0.125em 0.125em 0.125em 0.31250em;
+  margin-bottom: 1.875em;
+}
+
+.courses:last-of-type {
+  margin-bottom: 0;
 }
 
 .sources {
@@ -110,27 +115,19 @@ span.frums {
   padding: 0.250em;
 }
 
-
 .dates + .dates {
   margin: 0.1825em 0 0 0;
 }
 
-
-
-/*.task .dates { 
-  border-width: 0.0625em 0.0625em 0.0625em 0.0625em;
+.assignments {
+  display: block;
+  margin-left: 5.625em;
 }
 
-.task .dates + .dates { 
-  border-width: 0 0.0625em 0.0625em 0.0625em;
+span.grouped {
+  float: left;
+  width: 5.375em;
 }
-
-.default .dates { 
-  border-width: 0.1875em 0.0625em;
-}*/
-
-
-
 
 .sources span.smurf {
   margin: 0 0 0 0.375em;
@@ -155,6 +152,15 @@ span.frums {
 
 .semesters .courses a {
   margin:  0.1875em 0.4375em 0 0.375em;
+}
+
+.add {
+  display: block;
+  clear: both;
+  padding: 0.5em 0 0.125em 0;
+}
+
+.flipless .dates .a {
 }
 
 div + .smurf {

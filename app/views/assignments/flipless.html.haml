@@ -10,9 +10,8 @@
       %span.smurf  Meets: 
       %span.frums= Date::DAYNAMES[mday.to_i]
   .sources
-    Sources
     - @sources.each do |source|
-      %span.smurf  Abbrev.
+      %span.smurf  Source &ndash; 
       %span.frums= source.short_source
 
 .flipless
@@ -20,7 +19,7 @@
   - @due_dates = @course.all_days.to_a
   - @due_dates.each do |due_date|
     .dates
-      = Date.parse(due_date)
+      %span.grouped= Date.parse(due_date)
       - @today_assignments_array.nil? ? '' : @today_assignments_array.clear
       - @today_assignments_hash = @grouped_assignments.select{|d,a| d == Date.parse(due_date) }
       - @today_assignments_hash.each_value{|today_assignments| @today_assignments_array = today_assignments}
@@ -38,8 +37,9 @@
             %span.smurf
               - if today_assignment.completed
                 Done
-      Add assignment for source…
-      - @sources.each do |source|
-        =link_to(source.short_source, newflip_path(source_id: source.id, course_id: @course.id, due_date: Date.parse(due_date)) )
+      %span.add 
+        Add assignment for source…
+        - @sources.each do |source|
+          =link_to(source.short_source, newflip_path(source_id: source.id, course_id: @course.id, due_date: Date.parse(due_date)) )
 
-= link_to 'Back', :back
+= link_to 'Back', :cascade
