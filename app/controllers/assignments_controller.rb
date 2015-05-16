@@ -23,6 +23,11 @@ class AssignmentsController < ApplicationController
   def newflip
     @assignment = Assignment.new                                                      # <-- note singular
     @assignment.course_id = params[:course_id]
+
+    respond_to do |format|
+      format.html { render :newflip }
+      format.js
+    end
   end
 
   # GET /flipless/:course_id
