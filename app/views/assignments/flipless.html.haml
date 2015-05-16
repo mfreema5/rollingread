@@ -42,4 +42,6 @@
         - @sources.each do |source|
           =link_to(source.short_source, newflip_path(source_id: source.id, course_id: @course.id, due_date: Date.parse(due_date)) )
 
-= link_to 'Back', :cascade
+= link_to('Back to cascade', :cascade, :rel=>"external")
+&nbsp; &nbsp;
+= link_to('Back to task list', :task, :rel=>"external")

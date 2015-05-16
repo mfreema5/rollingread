@@ -13,6 +13,8 @@
   %b Course:
   = @source.course.full_course
 
-%p= link_to 'Edit', edit_source_path(@source)
-\|
-%p= link_to 'Back', sources_path
+%p= link_to('Edit', edit_source_path(@source) ) 
+&nbsp; &nbsp;
+%p= link_to('Back to cascade', :cascade, :rel=>"external")
+
+

@@ -20,7 +20,6 @@
   = @assignment.course_id
 
 
-
-= link_to 'Edit', edit_assignment_path(@assignment)
-\|
-= link_to 'Back', assignments_path
+%p= link_to('Edit', edit_assignment_path(@assignment) ) 
+&nbsp; &nbsp;
+%p= link_to('Back to flipless', assignment_for_course_path(@assignment.course_id, flip: true), :rel=>"external")

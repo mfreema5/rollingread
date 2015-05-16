@@ -45,6 +45,7 @@
                   %span.frums= source.source_details
                   %p
 
-= link_to 'Add new semester', semester_in_user_path(session[:user_id])
+= link_to('Add new semester', semester_in_user_path(session[:user_id]) )
 
-= link_to('Go home', '/', :rel=>"external")
+= link_to('Back to task list', :task, :rel=>"external")
+
