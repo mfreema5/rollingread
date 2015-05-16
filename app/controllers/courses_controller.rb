@@ -88,7 +88,7 @@ class CoursesController < ApplicationController
 
         loop_date = start_date
 
-        while loop_date.wday < this_day.to_i
+        while loop_date.wday != this_day.to_i
           loop_date = Date.jd(loop_date.jd + 1)
         end
 
