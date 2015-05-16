@@ -22,9 +22,8 @@
     %li
       = eday.to_s
       \ – 
-      = Date::DAYNAMES[Date.parse(eday).cwday]
+      = Date::DAYNAMES[Date.parse(eday).wday]
 
-
-%p= link_to 'Edit', edit_course_path(@course)
-\|
-%p= link_to 'Back', courses_path
+%p= link_to('Edit', edit_course_path(@course) ) 
+&nbsp; &nbsp;
+%p= link_to('Back to cascade', :cascade, :rel=>"external")
