@@ -48,12 +48,30 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new(assignment_params)
     @assignment.due_date = Date.parse(assignment_params[:due_date])
 
-    if @assignment.save
-      redirect_to assignment_for_course_path(@assignment.course_id), notice: 'Assignment was successfully created.'
-    else
-      render :new
+    respond_to do |format|
+      if @assignment.save
+        format.html { redirect_to assignment_for_course_path(@assignment.course_id), notice: 'Assignment was successfully created.' }
+        format.js
+        format.json { render :show, status: :created, location: @assignment }
+      else
+        format.html { render :new }
+        format.json { render json: @assignment.errors, status: :unprocessable_entity }
+      end
     end
   end
+
+
+
+    respond_to do |format|
+      if @assignment.save
+        format.html { redirect_to @assignment, notice: 'Assignment was successfully created.' }
+        format.json { render :show, status: :created, location: @assignment }
+      else
+        format.html { render :new }
+        format.json { render json: @assignment.errors, status: :unprocessable_entity }
+      end
+    end
+
 
   # PATCH/PUT /assignments/1
   # PATCH/PUT /assignments/1.json
